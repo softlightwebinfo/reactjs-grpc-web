@@ -6,6 +6,6 @@ export default class Index extends Component<any, any> {
     }
 
     render() {
-        return null;
+        return "HELLO"
     }
 }
