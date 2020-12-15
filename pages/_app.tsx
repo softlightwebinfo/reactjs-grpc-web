@@ -1,10 +1,11 @@
 import React from 'react';
 import App from 'next/app';
 import Head from 'next/head';
+import wrapper from "../src/store/store";
 
 class MyApp extends App {
     static async getInitialProps({Component, ctx}) {
-        const {store} = ctx;
+        // const {store} = ctx;
         // await store.dispatch(changeLanguage({language: "es"}));
         // @ts-ignore
         // await store.dispatch(authInitial(ctx.req ? ctx.req.headers.cookie : undefined));
@@ -30,4 +31,4 @@ class MyApp extends App {
     }
 }
 
-export default MyApp;
+export default wrapper.withRedux(MyApp)
