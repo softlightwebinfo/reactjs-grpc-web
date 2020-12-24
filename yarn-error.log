@@ -1,8 +1,8 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn add @types/react-redux
+  /usr/local/bin/node /usr/local/bin/yarn add @codeunic/ui-component
 
 PATH: 
-  /Users/rafaelgonzalezmunoz/IdeaProjects/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/usr/local/share/dotnet:~/.dotnet/tools:/Library/Apple/usr/bin:/Users/rafaelgonzalezmunoz/IdeaProjects/anuncios/frontend/node_modules/.bin
+  /Users/rafaelgonzalezmunoz/IdeaProjects/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/usr/local/share/dotnet:~/.dotnet/tools:/Library/Apple/usr/bin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Users/rafaelgonzalezmunoz/IdeaProjects/anuncios/frontend/node_modules/.bin
 
 Yarn version: 
   1.22.4
@@ -14,7 +14,17 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: ENOENT: no such file or directory, copyfile '/Users/rafaelgonzalezmunoz/Library/Caches/Yarn/v6/npm-node-fetch-2.6.0-e633456386d4aa55863f676a7ab0daa8fdecb0fd-integrity/node_modules/node-fetch/CHANGELOG.md' -> '/Users/rafaelgonzalezmunoz/IdeaProjects/anuncios/frontend/node_modules/cross-fetch/node_modules/node-fetch/CHANGELOG.md'
+  Error: https://registry.yarnpkg.com/@codeunic%2fui-component: Not found
+      at Request.params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:66987:18)
+      at Request.self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:140748:22)
+      at Request.emit (events.js:315:20)
+      at Request.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141720:10)
+      at Request.emit (events.js:315:20)
+      at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141642:12)
+      at Object.onceWrapper (events.js:421:28)
+      at IncomingMessage.emit (events.js:327:22)
+      at endReadableNT (_stream_readable.js:1220:12)
+      at processTicksAndRejections (internal/process/task_queues.js:84:21)
 
 npm manifest: 
   {
@@ -34,10 +44,10 @@ npm manifest:
       "@babel/core": "^7.12.9",
       "@babel/plugin-proposal-class-properties": "^7.12.1",
       "@babel/plugin-proposal-decorators": "^7.12.1",
-      "@codeunic/ui-components": "^0.1.0",
+      "@codeunic/ui-components": "^0.6.0",
       "@types/node": "^14.14.10",
+      "@types/react-redux": "^7.1.12",
       "babel-plugin-module-resolver": "^4.0.0",
-      "codeunic": "file:../../codeunic/libraries/ui-components",
       "cookie-parser": "^1.4.5",
       "cookie-session": "^1.4.0",
       "express": "^4.17.1",
@@ -56,6 +66,8 @@ npm manifest:
       "react-dom": "^17.0.1",
       "react-redux": "^7.2.2",
       "redux": "^4.0.5",
+      "redux-devtools-extension": "^2.13.8",
+      "redux-thunk": "^2.3.0",
       "socket.io": "^3.0.3",
       "socket.io-client": "^3.0.3",
       "ts-node": "^9.0.0",
@@ -356,16 +368,20 @@ Lockfile:
       lodash "^4.17.19"
       to-fast-properties "^2.0.0"
   
-  "@codeunic/ui-components@^0.1.0":
-    version "0.1.0"
-    resolved "https://registry.yarnpkg.com/@codeunic/ui-components/-/ui-components-0.1.0.tgz#5171ec8771e60004155abd9cdc323dc0800dc8b4"
-    integrity sha512-rLNfAvt7kAJuDq00xh9LHYeqdATvAFDZe1X2itiUNBS8/21xX52lMAO/lHFZFhwD19qshhW+cJvtRcv3UxzS3g==
+  "@codeunic/ui-components@^0.6.0":
+    version "0.6.0"
+    resolved "https://registry.yarnpkg.com/@codeunic/ui-components/-/ui-components-0.6.0.tgz#08e297246cb63dab57e88404ed8733b19723e287"
+    integrity sha512-+1idjkIF3SKgLFdbgMiio4AohpN6UFCOENCoi461Q9MfgMNy2aHVyaE58URSPS70qd10KS8GbjJ47nFoPBkxew==
     dependencies:
       "@fortawesome/fontawesome-svg-core" "^1.2.32"
       "@fortawesome/free-brands-svg-icons" "^5.15.1"
       "@fortawesome/free-regular-svg-icons" "^5.15.1"
       "@fortawesome/free-solid-svg-icons" "^5.15.1"
       "@fortawesome/react-fontawesome" "^0.1.13"
+      "@rollup/plugin-json" "^4.1.0"
+      leaflet "^1.7.1"
+      moment "^2.29.1"
+      react-leaflet "^3.0.5"
       uuid "^8.3.1"
   
   "@fortawesome/fontawesome-common-types@^0.2.32":
@@ -459,6 +475,27 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/@next/react-refresh-utils/-/react-refresh-utils-10.0.3.tgz#276bec60eae18768f96baf8a52f668f657f50ab4"
     integrity sha512-XtzzPX2R4+MIyu1waEQUo2tiNwWVEkmObA6pboRCDTPOs4Ri8ckaIE08lN5A5opyF6GVN+IEq/J8KQrgsePsZQ==
   
+  "@react-leaflet/core@^1.0.2":
+    version "1.0.2"
+    resolved "https://registry.yarnpkg.com/@react-leaflet/core/-/core-1.0.2.tgz#39c6a73f61c666d5dcf673741cea2672fa4bbae1"
+    integrity sha512-QbleYZTMcgujAEyWGki8Lx6cXQqWkNtQlqf5c7NImlIp8bKW66bFpez/6EVatW7+p9WKBOEOVci/9W7WW70EZg==
+  
+  "@rollup/plugin-json@^4.1.0":
+    version "4.1.0"
+    resolved "https://registry.yarnpkg.com/@rollup/plugin-json/-/plugin-json-4.1.0.tgz#54e09867ae6963c593844d8bd7a9c718294496f3"
+    integrity sha512-yfLbTdNS6amI/2OpmbiBoW12vngr5NW2jCJVZSBEz+H5KfUJZ2M7sDjk0U6GOOdCWFVScShte29o9NezJ53TPw==
+    dependencies:
+      "@rollup/pluginutils" "^3.0.8"
+  
+  "@rollup/pluginutils@^3.0.8":
+    version "3.1.0"
+    resolved "https://registry.yarnpkg.com/@rollup/pluginutils/-/pluginutils-3.1.0.tgz#706b4524ee6dc8b103b3c995533e5ad680c02b9b"
+    integrity sha512-GksZ6pr6TpIjHm8h9lSQ8pi8BE9VeubNT0OMJ3B5uZJ8pz73NPiqOtCog/x2/QzM1ENChPKxMDhiQuRHsqc+lg==
+    dependencies:
+      "@types/estree" "0.0.39"
+      estree-walker "^1.0.1"
+      picomatch "^2.2.2"
+  
   "@types/body-parser@*":
     version "1.19.0"
     resolved "https://registry.yarnpkg.com/@types/body-parser/-/body-parser-1.19.0.tgz#0685b3c47eb3006ffed117cdd55164b61f80538f"
@@ -491,6 +528,11 @@ Lockfile:
     dependencies:
       "@types/express" "*"
   
+  "@types/estree@0.0.39":
+    version "0.0.39"
+    resolved "https://registry.yarnpkg.com/@types/estree/-/estree-0.0.39.tgz#e177e699ee1b8c22d23174caaa7422644389509f"
+    integrity sha512-EYNwp3bU+98cpU4lAWYYL7Zz+2gryWH1qbdDTidVd6hkiR6weksdbMadyXKXNPEkQFhXM+hVO9ZygomHXp+AIw==
+  
   "@types/express-serve-static-core@*":
     version "4.17.14"
     resolved "https://registry.yarnpkg.com/@types/express-serve-static-core/-/express-serve-static-core-4.17.14.tgz#cabf91debeeb3cb04b798e2cff908864e89b6106"
@@ -509,6 +551,14 @@ Lockfile:
       "@types/express-serve-static-core" "*"
       "@types/qs" "*"
       "@types/serve-static" "*"
+  
+  "@types/hoist-non-react-statics@^3.3.0":
+    version "3.3.1"
+    resolved "https://registry.yarnpkg.com/@types/hoist-non-react-statics/-/hoist-non-react-statics-3.3.1.tgz#1124aafe5118cb591977aeb1ceaaed1070eb039f"
+    integrity sha512-iMIqiko6ooLrTh1joXodJK5X9xeEALT1kM5G3ZLhD3hszxBdIEd5C75U834D9mLcINgD4OyZf5uQXjkuYydWvA==
+    dependencies:
+      "@types/react" "*"
+      hoist-non-react-statics "^3.3.0"
   
   "@types/json-schema@^7.0.5", "@types/json-schema@^7.0.6":
     version "7.0.6"
@@ -540,7 +590,17 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/@types/range-parser/-/range-parser-1.2.3.tgz#7ee330ba7caafb98090bece86a5ee44115904c2c"
     integrity sha512-ewFXqrQHlFsgc09MK5jP5iR7vumV/BYayNC6PgJO2LPe8vrnNFyjQjSppfEngITi0qvfKtzFvgKymGheFM9UOA==
   
-  "@types/react@^17.0.0":
+  "@types/react-redux@^7.1.12":
+    version "7.1.12"
+    resolved "https://registry.yarnpkg.com/@types/react-redux/-/react-redux-7.1.12.tgz#148f2c768687346b556e29a322ca44cfa28cc3ac"
+    integrity sha512-xZj4/8oRZP5RlJPlC5XPnawPtMn+T2bV4Hxi38AcuoZzXlN/Il/ZPfgXuIq3WG37wVL6FP7suVfmE4BopuqtTg==
+    dependencies:
+      "@types/hoist-non-react-statics" "^3.3.0"
+      "@types/react" "*"
+      hoist-non-react-statics "^3.3.0"
+      redux "^4.0.0"
+  
+  "@types/react@*", "@types/react@^17.0.0":
     version "17.0.0"
     resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.0.tgz#5af3eb7fad2807092f0046a1302b7823e27919b8"
     integrity sha512-aj/L7RIMsRlWML3YB6KZiXB3fV2t41+5RBGYF8z+tAKU43Px8C3cYUZsDvf1/+Bm4FK21QWBrDutu8ZJ/70qOw==
@@ -1474,16 +1534,6 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
     integrity sha1-DQcLTQQ6W+ozovGkDi7bPZpMz3c=
   
-  "codeunic@file:../../codeunic/libraries/ui-components":
-    version "0.1.0"
-    dependencies:
-      "@fortawesome/fontawesome-svg-core" "^1.2.32"
-      "@fortawesome/free-brands-svg-icons" "^5.15.1"
-      "@fortawesome/free-regular-svg-icons" "^5.15.1"
-      "@fortawesome/free-solid-svg-icons" "^5.15.1"
-      "@fortawesome/react-fontawesome" "^0.1.13"
-      uuid "^8.3.1"
-  
   collection-visit@^1.0.0:
     version "1.0.0"
     resolved "https://registry.yarnpkg.com/collection-visit/-/collection-visit-1.0.0.tgz#4bc0373c164bc3291b4d368c829cf1a80a59dca0"
@@ -2285,6 +2335,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/estraverse/-/estraverse-5.2.0.tgz#307df42547e6cc7324d3cf03c155d5cdb8c53880"
     integrity sha512-BxbNGGNm0RyRYvUdHpIwv9IWzeM9XClbOxwoATuFdOE7ZE6wHL+HQ5T8hoPM+zHvmKzzsEqhgy0GrQ5X13afiQ==
   
+  estree-walker@^1.0.1:
+    version "1.0.1"
+    resolved "https://registry.yarnpkg.com/estree-walker/-/estree-walker-1.0.1.tgz#31bc5d612c96b704106b477e6dd5d8aa138cb700"
+    integrity sha512-1fMXF3YP4pZZVozF8j/ZLfvnR8NSIljt56UhbZ5PeeDmmGHpgpdwQt7ITlGvYaQukCvuBRMLEiKiYC+oeIg4cg==
+  
   esutils@^2.0.2:
     version "2.0.3"
     resolved "https://registry.yarnpkg.com/esutils/-/esutils-2.0.3.tgz#74d2eb4de0b8da1293711910d50775b9b710ef64"
@@ -2883,7 +2938,7 @@ Lockfile:
       minimalistic-assert "^1.0.0"
       minimalistic-crypto-utils "^1.0.1"
   
-  hoist-non-react-statics@^3.3.2:
+  hoist-non-react-statics@^3.3.0, hoist-non-react-statics@^3.3.2:
     version "3.3.2"
     resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz#ece0acaf71d62c2969c2ec59feff42a4b1a85b45"
     integrity sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==
@@ -3376,6 +3431,11 @@ Lockfile:
     integrity sha1-MIrMr6C8SDo4Z7S28rlQYlHRuDU=
     dependencies:
       invert-kv "^1.0.0"
+  
+  leaflet@^1.7.1:
+    version "1.7.1"
+    resolved "https://registry.yarnpkg.com/leaflet/-/leaflet-1.7.1.tgz#10d684916edfe1bf41d688a3b97127c0322a2a19"
+    integrity sha512-/xwPEBidtg69Q3HlqPdU3DnrXQOvQU/CCHA1tcDQVzOwm91YMYaILjNp7L4Eaw5Z4sOYdbBz6koWyibppd8Zqw==
   
   line-column@^1.0.2:
     version "1.0.2"
@@ -4359,7 +4419,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
     integrity sha1-Ywn04OX6kT7BxpMHrjZLSzd8nns=
   
-  picomatch@^2.0.4, picomatch@^2.2.1:
+  picomatch@^2.0.4, picomatch@^2.2.1, picomatch@^2.2.2:
     version "2.2.2"
     resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.2.2.tgz#21f333e9b6b8eaff02468f5146ea406d345f4dad"
     integrity sha512-q0M/9eZHzmr0AulXyPwNfZjtwZ/RBZlbN3K3CErVrk50T2ASYI7Bye0EvekFY3IP1Nt2DHu0re+V2ZHIpMkuWg==
@@ -4725,6 +4785,13 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
     integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
   
+  react-leaflet@^3.0.5:
+    version "3.0.5"
+    resolved "https://registry.yarnpkg.com/react-leaflet/-/react-leaflet-3.0.5.tgz#6b246867e4b08e3bc5960eebee91376785ce578b"
+    integrity sha512-0hJwwRMo5ChY+0nr1yO/UDCT4alIqMgJ7S/HoMBkL65Sr1yJ8eX5lAXk3EkdBUOwxQlMYCduU87pczYmudnlbQ==
+    dependencies:
+      "@react-leaflet/core" "^1.0.2"
+  
   react-redux@^7.2.2:
     version "7.2.2"
     resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-7.2.2.tgz#03862e803a30b6b9ef8582dadcc810947f74b736"
@@ -4822,7 +4889,17 @@ Lockfile:
       indent-string "^2.1.0"
       strip-indent "^1.0.1"
   
-  redux@^4.0.5:
+  redux-devtools-extension@^2.13.8:
+    version "2.13.8"
+    resolved "https://registry.yarnpkg.com/redux-devtools-extension/-/redux-devtools-extension-2.13.8.tgz#37b982688626e5e4993ff87220c9bbb7cd2d96e1"
+    integrity sha512-8qlpooP2QqPtZHQZRhx3x3OP5skEV1py/zUdMY28WNAocbafxdG2tRD1MWE7sp8obGMNYuLWanhhQ7EQvT1FBg==
+  
+  redux-thunk@^2.3.0:
+    version "2.3.0"
+    resolved "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-2.3.0.tgz#51c2c19a185ed5187aaa9a2d08b666d0d6467622"
+    integrity sha512-km6dclyFnmcvxhAcrQV2AkZmPQjzPDjgVlQtR0EQjxZPyJ0BnMf3in1ryuR8A2qU0HldVRfxYXbFSKlI3N7Slw==
+  
+  redux@^4.0.0, redux@^4.0.5:
     version "4.0.5"
     resolved "https://registry.yarnpkg.com/redux/-/redux-4.0.5.tgz#4db5de5816e17891de8a80c424232d06f051d93f"
     integrity sha512-VSz1uMAH24DM6MF72vcojpYPtrTUu3ByVWfPL1nPfVRb5mZVTve5GnNCUV53QM/BZ66xfWrm0CTWoM+Xlz8V1w==

@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
 
 export interface ITemplateProps {
-    children: ReactElement[] | ReactElement;
+    children: ReactElement[] | ReactElement | any[];
 }
