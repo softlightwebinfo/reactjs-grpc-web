@@ -29,7 +29,7 @@ export default class Index extends Component<any, any> {
 
     render() {
         return (
-            <Template>
+            <Template title={"Pagina principal"}>
                 <Carousel
                     images={[
                         {src: "https://digivizer.com/wp-content/uploads/2020/05/carousel-blogheader-1024x536-1.png"},

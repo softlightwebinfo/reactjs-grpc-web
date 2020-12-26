@@ -18,7 +18,7 @@ export default class Index extends Component<any, any> {
 
     render() {
         return (
-            <Template>
+            <Template title={"Contact"}>
                 <ContactPage
                     image={"https://therushaway.com/wp-content/uploads/2019/02/website-development-banner-png-1.png"}
                     title={"Send us a Message"}

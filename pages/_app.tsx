@@ -7,13 +7,6 @@ import { ContextProvider } from "@codeunic/ui-components/build";
 
 class MyApp extends App {
     static async getInitialProps({Component, ctx}) {
-        // const {store} = ctx;
-        // await store.dispatch(changeLanguage({language: "es"}));
-        // @ts-ignore
-        // await store.dispatch(authInitial(ctx.req ? ctx.req.headers.cookie : undefined));
-        // if (!store.getState().banner.banners.length) {
-        //     await store.dispatch(getAllBanner());
-        // }
         const pageProps = {
             ...(Component.getInitialProps ? await Component.getInitialProps(ctx) : {}),
         };
