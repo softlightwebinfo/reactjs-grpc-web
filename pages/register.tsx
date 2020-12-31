@@ -5,14 +5,6 @@ import { Link } from '@routes';
 import { FooterWidgetPropsLinkList } from "@codeunic/ui-components/build/widgets/FooterWidget/FooterWidget.types";
 
 export default class Index extends Component<any, any> {
-    static async getInitialProps(ctx) {
-        const {isServer} = ctx;
-
-        return {
-            isServer,
-        };
-    }
-
     constructor(props) {
         super(props);
     }

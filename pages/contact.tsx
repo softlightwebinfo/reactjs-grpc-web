@@ -4,14 +4,6 @@ import { faBox, faMarker, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { ContactPage } from "@codeunic/ui-components/build";
 
 export default class Index extends Component<any, any> {
-    static async getInitialProps(ctx) {
-        const {isServer} = ctx;
-
-        return {
-            isServer,
-        };
-    }
-
     constructor(props) {
         super(props);
     }

@@ -1,10 +1,10 @@
 import React from "react";
-import { Error404, Error500 } from "@codeunic/ui-components/build";
+import { Error404 } from "@codeunic/ui-components/build";
 import Head from "next/head";
 // @ts-ignore
 import { Link } from '@routes';
 
-function Error({statusCode}) {
+function Error() {
     const wrapperLink = (component: string) => {
         return (
             <Link route={"index"}>
@@ -22,14 +22,9 @@ function Error({statusCode}) {
                     background: white;
                 }          
             `}</style>
-            {statusCode === 404 ? <Error404 wrapperBack={wrapperLink}/> : <Error500 wrapperBack={wrapperLink}/>}
+            <Error404 wrapperBack={wrapperLink}/>
         </>
     )
-}
-
-Error.getInitialProps = ({res, err}) => {
-    const statusCode = res ? res.statusCode : err ? err.statusCode : 404
-    return {statusCode}
 }
 
 export default Error

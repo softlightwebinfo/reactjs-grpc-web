@@ -1,21 +1,18 @@
-// #region Global Imports
-import {createStore, applyMiddleware} from "redux";
-import thunkMiddleware from "redux-thunk";
-// eslint-disable-next-line import/no-extraneous-dependencies
-import {composeWithDevTools} from "redux-devtools-extension/developmentOnly";
-// #endregion Global Imports
+import { configureStore } from '@reduxjs/toolkit';
+import clockReducer from './slices/clockSlice';
+import counterReducer from './slices/counterSlice';
+import authReducer from './slices/authSlice';
+import { Context, createWrapper, MakeStore } from "next-redux-wrapper";
 
-// #region Local Imports
-import Reducers from "./reducers";
-import {createWrapper} from "next-redux-wrapper";
-// #endregion Local Imports
+export const makeStore: MakeStore = (_: Context) =>
+    configureStore({
+        reducer: {
+            counter: counterReducer,
+            clock: clockReducer,
+            auth: authReducer,
+        },
+        devTools: true,
+        // middleware: getDefaultMiddleware().prepend(logger)
+    });
 
-export const makeStore = (_, initialState: {}) => {
-    return createStore(
-        Reducers,
-        initialState,
-        composeWithDevTools(applyMiddleware(thunkMiddleware))
-    );
-};
-// @ts-ignore
-export default createWrapper(makeStore, {debug: false});
+export const wrapper = createWrapper(makeStore, {debug: false});

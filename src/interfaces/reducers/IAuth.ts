@@ -1,6 +1,6 @@
 export interface IAuth {
     token: string;
-    user: IAuthUser;
+    user: IAuthUser | undefined | null;
 }
 
 export type IAuthUser = {

@@ -1,9 +1,7 @@
 import { IAuth } from "./IAuth";
 
 export interface IAuthReducer {
-    parseAuthLoaded: boolean,
-    authLoaded: boolean,
+    isLogin: boolean,
     auth: IAuth | null,
-    error: boolean,
-    errorMessage: string
+    isLoading: false,
 }
