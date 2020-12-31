@@ -1,0 +1,71 @@
+syntax = "proto3";
+package proto;
+import "google/protobuf/wrappers.proto";
+
+message SuccessResponse{
+  bool success = 1;
+}
+
+message Article {
+  int64 id = 1;
+  string title = 2;
+  string description = 3;
+  int64 fkUser = 4;
+  string createdAt = 5;
+  string updatedAt = 6;
+  google.protobuf.StringValue deletedAt = 7;
+}
+
+message ArticlePublish {
+  string title = 2;
+  string description = 3;
+}
+
+message ArticleUpdate {
+  int64 id = 1;
+  string title = 2;
+  string description = 3;
+}
+
+message GetArticlesRequest {
+
+}
+
+message GetArticlesResponse {
+  repeated Article articles = 1;
+}
+
+message GetArticleRequest {
+  int64 id = 1;
+}
+
+message GetArticleResponse {
+  Article response = 1;
+}
+
+message DeleteArticleRequest {
+  int64 id = 1;
+}
+
+message SaveImagesArticleRequest {
+  int64 articleId = 1;
+  repeated string images = 2;
+}
+
+message GetArticlesUserRequest {
+  int64 user = 1;
+}
+
+message GetArticlesUserResponse {
+  repeated Article articles = 1;
+}
+
+service ArticleService {
+  rpc GetArticles(GetArticlesRequest) returns (GetArticlesResponse) {}
+  rpc GetArticle(GetArticleRequest) returns (GetArticleResponse) {}
+  rpc DeleteArticle(DeleteArticleRequest) returns (SuccessResponse) {}
+  rpc SaveImagesArticle(SaveImagesArticleRequest) returns (SuccessResponse) {}
+  rpc GetArticlesUser(GetArticlesUserRequest) returns (GetArticlesUserResponse) {}
+  rpc UpdateArticle(ArticleUpdate) returns (SuccessResponse) {}
+  rpc PublishArticle(ArticlePublish) returns (SuccessResponse) {}
+}

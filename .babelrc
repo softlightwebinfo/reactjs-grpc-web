@@ -33,6 +33,8 @@
         "alias": {
           "@components": "./src/components",
           "@settings": "./src/settings",
+          "@interfaces": "./src/interfaces",
+          "@store": "./src/store",
           "@routes": "./routes"
         }
       }

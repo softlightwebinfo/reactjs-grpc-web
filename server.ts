@@ -3,18 +3,9 @@ import express from 'express';
 import * as path from "path";
 // @ts-ignore
 import cookieParser from "cookie-parser";
-const routes = require("./routes");
 // @ts-ignore
-import multer from "multer";
 import bodyParser from "body-parser";
-const app = next({dev: process.env.NODE_ENV !== 'production'});
-const handler = routes.getRequestHandler(app);
-// SERVER AND IO SOCKET
-let serverExpress = express();
-
-const server = require('http').createServer(serverExpress);
-const io = require('socket.io')(server);
-
+import { AuthService } from "./serverSrc/clients/AuthService";
 // CONFIGS
 // let storage = multer.diskStorage({
 //     destination: function (_, __, callback) {
@@ -29,6 +20,15 @@ const io = require('socket.io')(server);
 // });
 // let upload = multer({storage: storage}).single('file');
 // let uploadMultiple = multer({storage: storage}).array('file', 10);
+
+const routes = require("./routes");
+const app = next({dev: process.env.NODE_ENV !== 'production'});
+const handler = routes.getRequestHandler(app);
+// SERVER AND IO SOCKET
+let serverExpress = express();
+
+const server = require('http').createServer(serverExpress);
+const io = require('socket.io')(server);
 
 io.on("connection", function (_socket) {
     console.log("Made socket connection");
@@ -45,6 +45,18 @@ app.prepare().then(() => {
         req.io = io;
         next();
     })
+
+    serverExpress.post("/api/auth/validate", (req, res) => {
+        AuthService.runService('VerifyAuth', {
+            token: req.body.token,
+        }, (e, resp) => {
+            if (e) {
+                return res.status(500).json({error: e.toString(), data: {}})
+            }
+            return res.json(resp);
+        });
+    });
+
     serverExpress.use(handler);
     server.listen(3000);
 });
